@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+    <style>
+    html{
+    font-family: sans-serif;
+}
+body{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlUoK26S2F25urMExEJB3LBOHRJySpgsRyZe3_R7nTZw&s);
+}
+.clickerBtn{
+    height: 300px;
+    width: 300px;
+    font-size: 65px;
+    border: none;
+    border-radius: 50%;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3, #0000, #ffff);
+  background-size: 1800% 1800%;
+  
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;}
+  
+  @-webkit-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-moz-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-o-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @keyframes rainbow { 
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  .clickerBtn:hover{
+    height: 310px;
+    width: 310px;
+    cursor: pointer;
+  }
+  .clickerBtn:active{
+    height: 295px;
+    width: 295px;
+  }
+
+    <style>
+
+</head>
+<body>
+    <div class="main">
+        <button class="clickerBtn" id="clickerBtn" onclick="scoreAdder()">0</button>
+
+    </div>
+</body>
+<script>
+console.log("sup");
+
+console.log("sup");
+const clickerBtn = document.getElementById("clickerBtn")
+
+function scoreAdder() {
+    let score = parseInt(clickerBtn.innerHTML);
+
+    if (score >= 200) {
+        score += 10;
+    } 
+    else if (score >= 100) {
+        score += 5;
+    } 
+    else if (score >= 50) {
+        score += 2;
+    } 
+    else if (score >= 100) {
+        score += 5;
+    } 
+    else{
+        score += 1;
+    }
+    clickerBtn.innerHTML = score;
+}
+</script>
+</html>
