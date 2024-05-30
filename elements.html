@@ -189,6 +189,9 @@ const autoBtn = document.getElementById("autoClicker")
 const autoCheckbox = document.getElementById("cbx-3")
 
 function scoreAdder() {
+  let clickSound = new Audio('clickSound.wav');
+    clickSound.play();
+    
     let score = parseInt(clickerBtn.innerHTML);
 
     
