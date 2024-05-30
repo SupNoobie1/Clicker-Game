@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+    <style>
+        html{
+    font-family: sans-serif;
+}
+body{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlUoK26S2F25urMExEJB3LBOHRJySpgsRyZe3_R7nTZw&s);
+}
+.resetBtn {
+  height: 40px;
+  width: 100px;
+  font-size: 20px;
+  border: none;
+  border-radius:54px !important;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text color */
+  padding: 10px 24px; /* Some padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* No underline */
+  display: inline-block;
+  font-family: sans-serif; /* Apply a nice font */
+  transition-duration: 0.1s; /* Transition effect */
+
+}
+.resetBtn:hover{
+  cursor: pointer;
+  color: black;
+
+}
+.resetBtn:active{
+  background-color: #ff2400;
+  color: white;
+  height: 38px;
+  width: 98px;
+  font-size: 18px;
+}
+
+.clickerBtn{
+    height: 300px;
+    width: 300px;
+    font-size: 65px;
+    border: none;
+    border-radius: 50%;
+    transition-duration: 0.1s;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3, #0000, #ffff);
+  background-size: 1800% 1800%;
+  
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;
+  }
+  
+  @-webkit-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-moz-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-o-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @keyframes rainbow { 
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  .clickerBtn:hover{
+    height: 310px;
+    width: 310px;
+    cursor: pointer;
+    font-size: 70px;
+    color: white;
+  }
+  .clickerBtn:active{
+    height: 295px;
+    width: 295px;
+    font-size: 60px;
+  }
+  .checkbox-wrapper-3{
+    color: white;
+  }
+  .checkbox-wrapper-3 input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+  }
+
+  .checkbox-wrapper-3 .toggle {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+  }
+  .checkbox-wrapper-3 .toggle:before {
+    content: "";
+    position: relative;
+    top: 3px;
+    left: 3px;
+    width: 34px;
+    height: 14px;
+    display: block;
+    background: #9A9999;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+  .checkbox-wrapper-3 .toggle span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
+    transition: all 0.2s ease;
+  }
+  .checkbox-wrapper-3 .toggle span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: -18px;
+    width: 56px;
+    height: 56px;
+    background: rgba(79, 46, 220, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  .checkbox-wrapper-3 #cbx-3:checked + .toggle:before {
+    background: #947ADA;
+  }
+  .checkbox-wrapper-3 #cbx-3:checked + .toggle span {
+    background: #4F2EDC;
+    transform: translateX(20px);
+    transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+    box-shadow: 0 3px 8px rgba(79, 46, 220, 0.2);
+  }
+  .checkbox-wrapper-3 #cbx-3:checked + .toggle span:before {
+    transform: scale(1);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        <button class="clickerBtn" id="clickerBtn" onclick="scoreAdder()">0</button>
+        <button class="resetBtn" id="resetBtn" onclick="resetScore()">Reset</button>
+        <div class="checkbox-wrapper-3">
+            AutoClicker:<input type="checkbox" id="cbx-3"/>
+            <label for="cbx-3" class="toggle"><span></span></label>
+          </div>
+
+    </div>
+</body>
+<script>
+console.log("fuck you if youre using console to cheat or sum");
+
+
+const clickerBtn = document.getElementById("clickerBtn")
+const autoBtn = document.getElementById("autoClicker")
+const autoCheckbox = document.getElementById("cbx-3")
+
+function scoreAdder() {
+  let clickSound = new Audio('clickSound.wav');
+    clickSound.play();
+    
+    let score = parseInt(clickerBtn.innerHTML);
+
+    
+    if (score >= 5000) {
+        score += 500;
+    }
+    else if (score >= 2000) {
+        score += 100;
+    }
+    else if (score >= 1000) {
+        score += 50;
+    }    
+    else if (score >= 500) {
+        score += 20;
+    }
+    else if (score >= 200) {
+        score += 10;
+    } 
+    else if (score >= 100) {
+        score += 5;
+    } 
+    else if (score >= 50) {
+        score += 2;
+    } 
+
+    else{
+        score += 1;
+    }
+    clickerBtn.innerHTML = score;
+}
+function resetScore(){
+    
+    if (clickerBtn.innerHTML == 0) {
+        window.alert("Score is already 0");
+    } else {
+        clickerBtn.innerHTML = 0;
+    }
+}
+
+function startAuto() {
+    autoInterval = setInterval(function() {
+        scoreAdder(); // Use scoreAdder() function to update score
+    }, 50); // 0.5 seconds
+}
+
+autoCheckbox.addEventListener("change", function() {
+    if (autoCheckbox.checked) {
+        startAuto();
+    } else {
+        clearInterval(autoInterval);
+    }
+});
+
+</script>
+</html>
